@@ -7,3 +7,4 @@
 -- set termguicolors
 
 require("general")
+require("plugins")
