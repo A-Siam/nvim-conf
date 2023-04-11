@@ -1,6 +1,6 @@
 -- theme setup
 require('onedark').setup {
-    style = 'darker'
+    style = 'cool'
 }
 require('onedark').load()
 
