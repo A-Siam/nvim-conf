@@ -8,4 +8,4 @@
 
 require("general")
 require("plugins")
-require("colors")
+require("appearance")
