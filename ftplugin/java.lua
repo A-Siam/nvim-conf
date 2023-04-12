@@ -68,13 +68,13 @@ vim.go.cmdheight = 2
 
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
-local jdtls = require('jdtls')
-jdtls.start_or_attach(config)
+vim.go.cmdheight = 2
+require('jdtls').start_or_attach(config)
 
-vim.keymap.set('n', '<leader>oi', jdtls.organize_imports(), {})
-vim.keymap.set('n', '<leader>ev', jdtls.extract_variable(), {})
+vim.keymap.set('n', '<leader>oi', "<CMD>lua require('jdtls').organize_imports()", {})
+vim.keymap.set('n', '<leader>ev', "<CMD>lua jdtls.extract_variable()", {})
 vim.keymap.set('v', '<leader>ev', "<ESC><CMD>lua require('jdtls').extract_variable(true)", {})
-vim.keymap.set('n', '<leader>ec', jdtls.extract_constant(), {})
+vim.keymap.set('n', '<leader>ec', "<CMD>lua require('jdtls').extract_constant()", {})
 vim.keymap.set('v', '<leader>ec', "<ESC><CMD>lua require('jdtls').extract_constant(true)", {})
 vim.keymap.set('v', '<leader>em', "<ESC><CMD>lua require('jdtls').extract_method(true)", {})
 
