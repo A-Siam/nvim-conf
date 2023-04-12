@@ -1,4 +1,4 @@
 require("general")
-require("lsp")
 require("plugins")
+require("lsp")
 require("appearance")

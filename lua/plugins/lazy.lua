@@ -13,5 +13,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup {
-    'navarasu/onedark.nvim'
+    'navarasu/onedark.nvim',
+    'neovim/nvim-lspconfig',
 }
