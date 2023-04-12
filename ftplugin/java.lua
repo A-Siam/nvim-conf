@@ -71,10 +71,10 @@ vim.go.cmdheight = 2
 vim.go.cmdheight = 2
 require('jdtls').start_or_attach(config)
 
-vim.keymap.set('n', '<leader>oi', "<CMD>lua require('jdtls').organize_imports()", {})
-vim.keymap.set('n', '<leader>ev', "<CMD>lua jdtls.extract_variable()", {})
-vim.keymap.set('v', '<leader>ev', "<ESC><CMD>lua require('jdtls').extract_variable(true)", {})
-vim.keymap.set('n', '<leader>ec', "<CMD>lua require('jdtls').extract_constant()", {})
-vim.keymap.set('v', '<leader>ec', "<ESC><CMD>lua require('jdtls').extract_constant(true)", {})
-vim.keymap.set('v', '<leader>em', "<ESC><CMD>lua require('jdtls').extract_method(true)", {})
+vim.keymap.set('n', '<leader>oi', "<CMD>lua require('jdtls').organize_imports()<CR>", {})
+vim.keymap.set('n', '<leader>ev', "<CMD>lua jdtls.extract_variable()<CR>", {})
+vim.keymap.set('v', '<leader>ev', "<ESC><CMD>lua require('jdtls').extract_variable(true)<CR>", {})
+vim.keymap.set('n', '<leader>ec', "<CMD>lua require('jdtls').extract_constant()<CR>", {})
+vim.keymap.set('v', '<leader>ec', "<ESC><CMD>lua require('jdtls').extract_constant(true)<CR>", {})
+vim.keymap.set('v', '<leader>em', "<ESC><CMD>lua require('jdtls').extract_method(true)<CR>", {})
 
