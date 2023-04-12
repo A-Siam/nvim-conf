@@ -21,8 +21,8 @@ local config = {
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
 
     -- 💀
-    '-jar', jdtls_installation_path .. '/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar
-',
+    '-jar', jdtls_installation_path .. '/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar'
+,
          -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
          -- Must point to the                                                     Change this to
          -- eclipse.jdt.ls installation                                           the actual version

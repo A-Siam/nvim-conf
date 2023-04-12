@@ -10,3 +10,4 @@ wo.number = true
 wo.rnu = true
 
 go.ignorecase = true
+go.cmdheight = 2
