@@ -65,12 +65,32 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local lspconfig = require('lspconfig')
 
-local servers = { 'pyright' }
+local servers = { 'pyright', 'lua_ls' }
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    -- on_attach = my_custom_on_attach,
-    capabilities = capabilities,
-  }
+    if lsp ~= 'lua_ls' then
+        lspconfig[lsp].setup {
+            capabilities = capabilities,
+        }
+    else 
+        lspconfig.lua_ls.setup {
+            capabilities = capabilities,
+            runtime = {
+                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                version = 'LuaJIT',
+            },
+            diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = {'vim'},
+            },
+            workspace = {
+                -- Make the server aware of Neovim runtime files
+                library = vim.api.nvim_get_runtime_file("", true),
+            },
+            telemetry = {
+                enable = false,
+            },
+        }
+    end
 end
 -- general config
 require("lsp/config")

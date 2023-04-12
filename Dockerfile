@@ -36,7 +36,6 @@ RUN curl -LO https://www.eclipse.org/downloads/download.php?file=/jdtls/mileston
 RUN tar -xzvf jdt-language-server-1.9.0-202203031534.tar.gz
 RUN rm jdt-language-server-1.9.0-202203031534.tar.gz
 
-WORKDIR /workspace
 
 RUN add-apt-repository ppa:fish-shell/release-3
 RUN apt update
@@ -44,6 +43,14 @@ RUN apt install -y fish
 
 RUN mkdir -p ~/.config/fish
 RUN echo "set fish_greeting" >> ~/.config/fish/config.fish
+
+WORKDIR /root/lua_lsp
+RUN curl -LO https://github.com/LuaLS/lua-language-server/releases/download/3.6.18/lua-language-server-3.6.18-linux-x64.tar.gz
+RUN tar -xzvf lua-language-server-3.6.18-linux-x64.tar.gz
+RUN rm lua-language-server-3.6.18-linux-x64.tar.gz
+RUN fish -c "fish_add_path /root/lua_lsp/bin"
+
+WORKDIR /workspace
 
 # dotfiles
 ARG CACHEBUST=1 
