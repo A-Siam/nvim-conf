@@ -22,4 +22,5 @@ require("lazy").setup {
     'windwp/nvim-autopairs',
     {'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim' }},
     'mfussenegger/nvim-jdtls',
+    'nvim-treesitter/nvim-treesitter',
 }

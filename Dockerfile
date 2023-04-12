@@ -38,6 +38,13 @@ RUN rm jdt-language-server-1.9.0-202203031534.tar.gz
 
 WORKDIR /workspace
 
+RUN add-apt-repository ppa:fish-shell/release-3
+RUN apt update
+RUN apt install -y fish
+
+RUN mkdir -p ~/.config/fish
+RUN echo "set fish_greeting" >> ~/.config/fish/config.fish
+
 # dotfiles
 ARG CACHEBUST=1 
 RUN git clone https://github.com/A-Siam/nvim-conf /root/.config/nvim
