@@ -1,17 +1,5 @@
 -- initialize LSPs
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-local lspconfig = require('lspconfig')
-
-local servers = { 'pyright' }
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    -- on_attach = my_custom_on_attach,
-    capabilities = capabilities,
-  }
-end
-
 -- cmp config
 local luasnip = require 'luasnip'
 -- nvim-cmp setup
@@ -21,6 +9,10 @@ cmp.setup {
     expand = function(args)
       luasnip.lsp_expand(args.body)
     end,
+  },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
   mapping = cmp.mapping.preset.insert({
     ['<C-u>'] = cmp.mapping.scroll_docs(-4), -- Up
@@ -50,12 +42,35 @@ cmp.setup {
       end
     end, { 'i', 's' }),
   }),
-  sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-  },
+   sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+      { name = 'luasnip' }, -- For luasnip users.
+    }, {
+      { name = 'buffer' },
+    }),
 }
 
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
 
+
+
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+local lspconfig = require('lspconfig')
+
+local servers = { 'pyright' }
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    -- on_attach = my_custom_on_attach,
+    capabilities = capabilities,
+  }
+end
 -- general config
 require("lsp/config")
