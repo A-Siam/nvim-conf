@@ -50,6 +50,9 @@ RUN tar -xzvf lua-language-server-3.6.18-linux-x64.tar.gz
 RUN rm lua-language-server-3.6.18-linux-x64.tar.gz
 RUN fish -c "fish_add_path /root/lua_lsp/bin"
 
+WORKDIR /root/lombok
+RUN curl -LO https://projectlombok.org/downloads/lombok.jar
+
 WORKDIR /workspace
 
 # dotfiles
