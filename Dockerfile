@@ -56,6 +56,8 @@ RUN curl -LO https://projectlombok.org/downloads/lombok.jar
 # install dap
 RUN pip install debugpy
 
+RUN apt install xclip
+
 WORKDIR /workspace
 
 # dotfiles
