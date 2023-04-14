@@ -37,5 +37,7 @@ dap.configurations.python = {
 local dapui = require("dapui")
 dapui.setup()
 
+-- keymaps
 vim.keymap.set('n', '<space>dd', dapui.toggle , {})
+vim.keymap.set('n', '<space>df', "<CMD>lua require'dap'.toggle_breakpoint()<CR>" , {})
 
