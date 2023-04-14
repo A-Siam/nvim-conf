@@ -40,4 +40,6 @@ dapui.setup()
 -- keymaps
 vim.keymap.set('n', '<space>dd', dapui.toggle , {})
 vim.keymap.set('n', '<space>df', "<CMD>lua require'dap'.toggle_breakpoint()<CR>" , {})
+vim.keymap.set('n', '<space>dfc', ":lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", {})
+
 
