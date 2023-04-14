@@ -33,5 +33,6 @@ require("lazy").setup {
         dependencies = {'nvim-tree/nvim-web-devicons'},
     },
     'APZelos/blamer.nvim',
-    'mfussenegger/nvim-dap'
+    'mfussenegger/nvim-dap',
+    'rcarriga/nvim-dap-ui'
 }
