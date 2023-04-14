@@ -33,9 +33,46 @@ dap.configurations.python = {
   },
 }
 
+-- nodejs
+dap.adapters["pwa-node"] = {
+  type = "server",
+  host = "localhost",
+  port = "${port}",
+  executable = {
+    command = "node",
+    args = {os.getenv("HOME") .. "/node_dap/vscode-js-debug-1.77.2/src/dapDebugServer.js", "${port}"},
+  }
+}
+
+for _, language in ipairs({ "typescript", "javascript" }) do
+    require("dap").configurations[language] = {
+        {
+            {
+                type = "pwa-node",
+                request = "launch",
+                name = "Launch file",
+                program = "${file}",
+                cwd = "${workspaceFolder}",
+            },
+        }
+    }
+end
+
+
+
 -- dapui
 local dapui = require("dapui")
 dapui.setup()
+
+dap.listeners.after.event_initialized["dapui_config"] = function()
+  dapui.open()
+end
+dap.listeners.before.event_terminated["dapui_config"] = function()
+  dapui.close()
+end
+dap.listeners.before.event_exited["dapui_config"] = function()
+  dapui.close()
+end
 
 -- keymaps
 vim.keymap.set('n', '<space>dd', dapui.toggle , {})

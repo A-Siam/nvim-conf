@@ -63,6 +63,14 @@ WORKDIR /workspace
 # install tsserver
 RUN npm install -g typescript typescript-language-server
 
+# install node dap
+WORKDIR /root/node_dap
+RUN curl -LO https://github.com/microsoft/vscode-js-debug/archive/refs/tags/v1.77.2.tar.gz
+RUN tar -xzvf v1.77.2.tar.gz
+RUN rm v1.77.2.tar.gz
+
+WORKDIR /workspace
+
 # dotfiles
 ARG CACHEBUST=1 
 RUN git clone https://github.com/A-Siam/nvim-conf /root/.config/nvim
