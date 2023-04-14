@@ -37,5 +37,5 @@ dap.configurations.python = {
 local dapui = require("dapui")
 dapui.setup()
 
-vim.keymap.set('n', '<space>dd', dapui.toggle() , {})
+vim.keymap.set('n', '<space>dd', dapui.toggle , {})
 
