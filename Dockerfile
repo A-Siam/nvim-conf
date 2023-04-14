@@ -53,6 +53,9 @@ RUN fish -c "fish_add_path /root/lua_lsp/bin"
 WORKDIR /root/lombok
 RUN curl -LO https://projectlombok.org/downloads/lombok.jar
 
+# install dap
+RUN pip install debugpy
+
 WORKDIR /workspace
 
 # dotfiles
