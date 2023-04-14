@@ -60,6 +60,9 @@ RUN apt install xclip
 
 WORKDIR /workspace
 
+# install tsserver
+RUN npm install -g typescript typescript-language-server
+
 # dotfiles
 ARG CACHEBUST=1 
 RUN git clone https://github.com/A-Siam/nvim-conf /root/.config/nvim
