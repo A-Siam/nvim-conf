@@ -77,6 +77,8 @@ ENV EDITOR nvim
 
 RUN npm install -g ts-node
 
+ENV MAIN_SHELL fish
+
 # dotfiles
 ARG CACHEBUST=1 
 RUN git clone https://github.com/A-Siam/nvim-conf /root/.config/nvim

@@ -10,3 +10,7 @@ wo.number = true
 wo.rnu = true
 
 go.ignorecase = true
+
+-- general keymaps
+vim.keymap.set('n', '<leader>tt', "<CMD>tab term ".. os.getenv("MAIN_SHELL") .. "<CR>", {})
+
