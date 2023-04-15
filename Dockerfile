@@ -75,6 +75,8 @@ COPY .gitconfig /root/.gitconfig
 
 ENV EDITOR nvim
 
+RUN npm install -g ts-node
+
 # dotfiles
 ARG CACHEBUST=1 
 RUN git clone https://github.com/A-Siam/nvim-conf /root/.config/nvim
