@@ -85,6 +85,10 @@ RUN chmod +x /opt/safe_git_workspace.sh
 
 RUN echo "/opt/safe_git_workspace.sh" >> /root/.config/fish/config.fish
 
+# lazygit
+COPY lazygit_bootstrap.sh /opt/lazygit_bootstrap.sh
+RUN bash /opt/lazygit_bootstrap.sh
+
 # dotfiles
 ARG CACHEBUST=1 
 RUN git clone https://github.com/A-Siam/nvim-conf /root/.config/nvim
