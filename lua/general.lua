@@ -1,10 +1,10 @@
-local bo = vim.bo
+local opt = vim.opt
 local wo = vim.wo
 local go = vim.go
 
-bo.tabstop = 4
-bo.shiftwidth = 4
-bo.expandtab = true
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.expandtab = true
 
 wo.number = true
 wo.rnu = true
