@@ -79,7 +79,8 @@ RUN npm install -g ts-node
 
 ENV MAIN_SHELL fish
 
-RUN git config --global --add safe.directory /workspace/*
+COPY safe_git_workspace.sh /opt/safe_git_workspace.sh
+RUN bash /opt/safe_git_workspace.sh
 
 # dotfiles
 ARG CACHEBUST=1 
