@@ -80,12 +80,14 @@ RUN npm install -g ts-node
 ENV MAIN_SHELL fish
 
 COPY safe_git_workspace.sh /opt/safe_git_workspace.sh
-RUN bash /opt/safe_git_workspace.sh
+
+RUN chmod +x /opt/safe_git_workspace.sh
+
+RUN echo "/opt/safe_git_workspace.sh" >> /root/.config/fish/config.fish
 
 # dotfiles
 ARG CACHEBUST=1 
 RUN git clone https://github.com/A-Siam/nvim-conf /root/.config/nvim
-
 
 CMD ["nvim", "-v"]
 
