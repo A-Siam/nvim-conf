@@ -40,5 +40,6 @@ require("lazy").setup {
     {
         'microsoft/vscode-js-debug',
         build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
-    }
+    },
+    'kdheepak/lazygit.nvim'
 }
