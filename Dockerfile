@@ -71,7 +71,7 @@ RUN rm v1.77.2.tar.gz
 
 WORKDIR /workspace
 
-COPY ~/.gitconfig /root/.gitconfig
+COPY .gitconfig /root/.gitconfig
 
 # dotfiles
 ARG CACHEBUST=1 
