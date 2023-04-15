@@ -59,6 +59,15 @@ for _, language in ipairs({ "typescript", "javascript" }) do
             name = "Attach",
             processId = require'dap.utils'.pick_process,
             cwd = "${workspaceFolder}",
+        },
+        {
+            type = "pwa-node",
+            request = "launch",
+            name = "Launch via npm",
+            processId = require'dap.utils'.pick_process,
+            cwd = "${workspaceFolder}",
+            runtimeExecutable= "npm",
+            runtimeArgs = {"run-script", "debug"}
         }
     }
 end
