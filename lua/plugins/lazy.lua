@@ -44,14 +44,12 @@ require("lazy").setup {
     'kdheepak/lazygit.nvim',
     'phaazon/hop.nvim',
     "neovim/nvim-lspconfig",
-    dependencies = {
-        {
-            "SmiteshP/nvim-navbuddy",
-            dependencies = {
+    {
+        "SmiteshP/nvim-navbuddy",
+        dependencies = {
                 "SmiteshP/nvim-navic",
                 "MunifTanjim/nui.nvim"
-            },
-            opts = { lsp = { auto_attach = true } }
-        }
-    },
+        },
+        opts = { lsp = { auto_attach = true } }
+    }
 }
