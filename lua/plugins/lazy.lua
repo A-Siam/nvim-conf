@@ -42,5 +42,6 @@ require("lazy").setup {
         build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
     },
     'kdheepak/lazygit.nvim',
-    'lukas-reineke/indent-blankline.nvim'
+    'lukas-reineke/indent-blankline.nvim',
+    'easymotion/vim-easymotion'
 }
