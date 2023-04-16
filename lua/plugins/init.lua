@@ -6,6 +6,5 @@ require("plugins.lualine")
 require("plugins.nvim-tree")
 require("plugins.blamer")
 require("plugins.dap")
-require("plugins.indentline")
 require("plugins.hop")
 
