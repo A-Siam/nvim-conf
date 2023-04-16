@@ -14,4 +14,5 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 
 vim.keymap.set('n', '<space>bb', "<CMD>NvimTreeToggle<CR>", {})
+vim.keymap.set('n', '<space>bf', "<CMD>NvimTreeFindFile<CR>", {})
 
