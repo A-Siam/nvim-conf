@@ -58,7 +58,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local lspconfig = require('lspconfig')
 
-local navbuddy = require("nvim-navbuddy")
+local navic = require("nvim-navic")
 
 
 local servers = { 'pyright', 'lua_ls', 'tsserver' }
@@ -67,7 +67,7 @@ for _, lsp in ipairs(servers) do
         lspconfig[lsp].setup {
             capabilities = capabilities,
             on_attach = function(client, bufnr)
-                navbuddy.attach(client, bufnr)
+                navic.attach(client, bufnr)
             end
         }
     else

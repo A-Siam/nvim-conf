@@ -14,6 +14,5 @@ go.ignorecase = true
 -- general keymaps
 vim.keymap.set('n', '<leader>tt', ":tabnew<CR>:term ".. os.getenv("MAIN_SHELL") .. "<CR>a", {})
 vim.keymap.set('n', '<leader>gg', ":LazyGit<CR>", {})
-vim.keymap.set('n', '<leader>nn', ":Navbuddy<CR>", {})
 vim.keymap.set('n', '<leader>nh', ":noh<CR>", {})
 
