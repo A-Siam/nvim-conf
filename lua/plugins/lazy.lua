@@ -43,4 +43,5 @@ require("lazy").setup {
     },
     'kdheepak/lazygit.nvim',
     'lukas-reineke/indent-blankline.nvim',
+    'phaazon/hop.nvim'
 }
