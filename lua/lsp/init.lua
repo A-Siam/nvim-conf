@@ -60,7 +60,6 @@ local lspconfig = require('lspconfig')
 
 local navic = require("nvim-navic")
 
-
 local servers = { 'pyright', 'lua_ls', 'tsserver' }
 for _, lsp in ipairs(servers) do
     if lsp ~= 'lua_ls' then
