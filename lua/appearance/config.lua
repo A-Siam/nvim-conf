@@ -1,2 +1,2 @@
 local wo = vim.wo
-wo.cursorline = false
+wo.cursorline = true
