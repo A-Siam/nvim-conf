@@ -16,10 +16,15 @@ require("lazy").setup {
     'navarasu/onedark.nvim',
     'neovim/nvim-lspconfig',
     'hrsh7th/nvim-cmp',
-    'hrsh7th/cmp-nvim-lsp',
+    {
+        'hrsh7th/cmp-nvim-lsp',
+        dependencies = {
+            'rafamadriz/friendly-snippets',
+            'L3MON4D3/LuaSnip',
+            'saadparwaiz1/cmp_luasnip',
+        },
+    },
     'hrsh7th/cmp-nvim-lua',
-    'saadparwaiz1/cmp_luasnip',
-    'L3MON4D3/LuaSnip',
     'windwp/nvim-autopairs',
     {'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim' }},
     'mfussenegger/nvim-jdtls',
@@ -46,5 +51,4 @@ require("lazy").setup {
     'SmiteshP/nvim-navic',
     'lewis6991/gitsigns.nvim',
     'simrat39/symbols-outline.nvim',
-    'rafamadriz/friendly-snippets'
 }
