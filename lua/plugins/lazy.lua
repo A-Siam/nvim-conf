@@ -43,5 +43,6 @@ require("lazy").setup {
     },
     'kdheepak/lazygit.nvim',
     'phaazon/hop.nvim',
-    'SmiteshP/nvim-navic'
+    'SmiteshP/nvim-navic',
+    'lewis6991/gitsigns.nvim',
 }
