@@ -15,4 +15,5 @@ go.ignorecase = true
 vim.keymap.set('n', '<leader>tt', ":tabnew<CR>:term ".. os.getenv("MAIN_SHELL") .. "<CR>a", {})
 vim.keymap.set('n', '<leader>gg', ":LazyGit<CR>", {})
 vim.keymap.set('n', '<leader>nh', ":noh<CR>", {})
+vim.api.nvim_set_keymap('i', '<c-s>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', {})
 
