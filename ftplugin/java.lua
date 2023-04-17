@@ -94,3 +94,8 @@ vim.keymap.set('v', '<leader>ec', "<ESC><CMD>lua require('jdtls').extract_consta
 vim.keymap.set('v', '<leader>em', "<ESC><CMD>lua require('jdtls').extract_method(true)<CR>", {})
 vim.keymap.set('n', '<leader><leader>d', "<CMD>lua require('jdtls.dap').setup_dap_main_class_configs()<CR>", {})
 
+local dapui = require("dapui")
+vim.keymap.set('n', '<space>dd', function ()
+    dapui.toggle()
+    require('jdtls.dap').setup_dap_main_class_configs()
+end , {})
