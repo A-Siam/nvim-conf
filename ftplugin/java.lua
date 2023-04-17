@@ -62,9 +62,20 @@ local config = {
   --
   -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
   init_options = {
-    bundles = {}
+    bundles = {
+        vim.fn.glob("/root/java_dap/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar", 1),
+    }
   },
+  on_attach = function ()
+      require('jdtls').setup_dap({ hotcodereplace = 'auto' })
+  end
 }
+
+vim.list_extend(bundles, vim.split(vim.fn.glob("/root/java_dap/vscode-java-test/server/*.jar", 1), "\n"))
+config['init_options'] = {
+  bundles = bundles;
+}
+
 vim.go.cmdheight = 2
 
 -- This starts a new client & server,

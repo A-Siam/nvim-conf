@@ -92,6 +92,16 @@ RUN bash /opt/lazygit_bootstrap.sh
 RUN npm i -g yarn
 RUN yarn global add yaml-language-server
 
+WORKDIR /root/java_dap
+RUN git clone https://github.com/microsoft/java-debug.git 
+RUN ./java-debug/mvnw clean install
+
+RUN git clone https://github.com/microsoft/vscode-java-test.git
+WORKDIR /root/java_dap/vscode-java-test
+RUN npm install
+RUN npm run build-plugin
+
+WORKDIR /workspace
 # dotfiles
 ARG CACHEBUST=1 
 RUN git clone https://github.com/A-Siam/nvim-conf /root/.config/nvim
