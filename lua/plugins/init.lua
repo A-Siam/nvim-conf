@@ -8,4 +8,5 @@ require("plugins.blamer")
 require("plugins.dap")
 require("plugins.hop")
 require("plugins.gitsigns")
+require("plugins.symbols-outline")
 

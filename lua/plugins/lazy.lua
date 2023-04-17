@@ -45,4 +45,5 @@ require("lazy").setup {
     'phaazon/hop.nvim',
     'SmiteshP/nvim-navic',
     'lewis6991/gitsigns.nvim',
+    'simrat39/symbols-outline.nvim'
 }
