@@ -74,10 +74,6 @@ local bundles = {
 };
 
 -- This is the new part
-vim.list_extend(bundles, vim.split(vim.fn.glob("/path/to/microsoft/vscode-java-test/server/*.jar", 1), "\n"))
-config['init_options'] = {
-  bundles = bundles;
-}
 vim.list_extend(bundles, vim.split(vim.fn.glob("/root/java_dap/vscode-java-test/server/*.jar", 1), "\n"))
 config['init_options'] = {
   bundles = bundles;
