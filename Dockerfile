@@ -89,6 +89,9 @@ RUN echo "/opt/safe_git_workspace.sh" >> /root/.config/fish/config.fish
 COPY lazygit_bootstrap.sh /opt/lazygit_bootstrap.sh
 RUN bash /opt/lazygit_bootstrap.sh
 
+# spectral config
+RUN npm i -g spectral-language-server
+
 # dotfiles
 ARG CACHEBUST=1 
 RUN git clone https://github.com/A-Siam/nvim-conf /root/.config/nvim
