@@ -62,15 +62,22 @@ local config = {
   --
   -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
   init_options = {
-    bundles = {
-        vim.fn.glob("/root/java_dap/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar", 1),
-    }
+    bundles = { }
   },
   on_attach = function ()
       require('jdtls').setup_dap({ hotcodereplace = 'auto' })
   end
 }
+-- This bundles definition is the same as in the previous section (java-debug installation)
+local bundles = {
+  vim.fn.glob("path/to/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar", 1),
+};
 
+-- This is the new part
+vim.list_extend(bundles, vim.split(vim.fn.glob("/path/to/microsoft/vscode-java-test/server/*.jar", 1), "\n"))
+config['init_options'] = {
+  bundles = bundles;
+}
 vim.list_extend(bundles, vim.split(vim.fn.glob("/root/java_dap/vscode-java-test/server/*.jar", 1), "\n"))
 config['init_options'] = {
   bundles = bundles;
