@@ -96,4 +96,5 @@ vim.keymap.set('v', '<leader>ev', "<ESC><CMD>lua require('jdtls').extract_variab
 vim.keymap.set('n', '<leader>ec', "<CMD>lua require('jdtls').extract_constant()<CR>", {})
 vim.keymap.set('v', '<leader>ec', "<ESC><CMD>lua require('jdtls').extract_constant(true)<CR>", {})
 vim.keymap.set('v', '<leader>em', "<ESC><CMD>lua require('jdtls').extract_method(true)<CR>", {})
+vim.keymap.set('n', '<leader><leader>d', "<CMD>lua require('jdtls.dap').setup_dap_main_class_configs()<CR>", {})
 
