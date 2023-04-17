@@ -89,8 +89,8 @@ RUN echo "/opt/safe_git_workspace.sh" >> /root/.config/fish/config.fish
 COPY lazygit_bootstrap.sh /opt/lazygit_bootstrap.sh
 RUN bash /opt/lazygit_bootstrap.sh
 
-# spectral config
-RUN npm i -g spectral-language-server
+RUN npm i -g yarn
+RUN yarn global add yaml-language-server
 
 # dotfiles
 ARG CACHEBUST=1 

@@ -60,17 +60,33 @@ local lspconfig = require('lspconfig')
 
 local navic = require("nvim-navic")
 
-local servers = { 'pyright', 'lua_ls', 'tsserver', 'spectral' }
+local servers = { 'pyright', 'lua_ls', 'tsserver', 'yarmlls' }
+
+local function on_attach (client, bufnr)
+    navic.attach(client, bufnr)
+end
+
 for _, lsp in ipairs(servers) do
-    if lsp ~= 'lua_ls' then
+    if lsp ~= 'lua_ls' or lsp ~= 'yamlls' then
         lspconfig[lsp].setup {
             capabilities = capabilities,
-            on_attach = function(client, bufnr)
-                navic.attach(client, bufnr)
-            end
+            on_attach = on_attach
         }
-    else
+    elseif lsp == 'yarmlls' then
+        lspconfig[lsp].setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
+            settings = {
+                yaml = {
+                    schemas = {
+                        ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.0/schema.yaml"] = "/*"
+                    }
+                }
+            }
+        }
+    elseif lsp == 'lua_ls' then
         lspconfig.lua_ls.setup {
+            on_attach = on_attach,
             capabilities = capabilities,
             runtime = {
                 -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
