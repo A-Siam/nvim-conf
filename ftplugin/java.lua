@@ -70,7 +70,7 @@ local config = {
 }
 -- This bundles definition is the same as in the previous section (java-debug installation)
 local bundles = {
-  vim.fn.glob("path/to/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar", 1),
+  vim.fn.glob("/root/java_dap/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar", 1),
 };
 
 -- This is the new part
