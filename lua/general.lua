@@ -16,8 +16,11 @@ vim.keymap.set('n', '<leader>tt', ":tabnew<CR>:term ".. os.getenv("MAIN_SHELL") 
 vim.keymap.set('n', '<leader>gg', ":LazyGit<CR>", {})
 vim.keymap.set('n', '<leader>nh', ":noh<CR>", {})
 vim.keymap.set('i', '<c-s>', "<cmd>lua vim.lsp.buf.signature_help()<CR>", {})
-vim.keymap.set('i', '<Tab>', "<cmd>lua require('luasnip').jump(1)<Cr>", {})
-vim.keymap.set('i', '<S-Tab>', "<cmd>lua require('luasnip').jump(-1)<Cr>", {})
-vim.keymap.set('s', '<Tab>', "<cmd>lua require('luasnip').jump(1)<Cr>", {})
-vim.keymap.set('s', '<S-Tab>', "<cmd>lua require('luasnip').jump(-1)<Cr>", {})
-
+vim.cmd [[
+    imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
+    " -1 for jumping backwards.
+    inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
+    
+    snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
+    snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
+]]
