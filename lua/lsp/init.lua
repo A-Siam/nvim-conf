@@ -2,7 +2,7 @@
 
 -- cmp config
 local luasnip = require 'luasnip'
-luasnip.loaders.from_vscode.lazy_load()
+require("luasnip/loaders/from_vscode").lazy_load()
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
