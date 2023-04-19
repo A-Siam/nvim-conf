@@ -14,5 +14,6 @@ docker run -v "$cache_dir":/root/.local/share/nvim \
            -v "$HOME/.ssh":"/root/.ssh" \
            -e DISPLAY=$DISPLAY \
            --net="host" \
+           --user "$(id -u):$(id -g)" \
            --rm -it --detach-keys="ctrl-z,e" docker_nvim fish
 xhost -local:root
