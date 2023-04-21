@@ -62,7 +62,7 @@ local lspconfig = require('lspconfig')
 
 local navic = require("nvim-navic")
 
-local servers = { 'pyright', 'lua_ls', 'tsserver', 'yamlls' }
+local servers = { 'pyright', 'lua_ls', 'tsserver', 'yamlls', 'gopls' }
 
 local function on_attach (client, bufnr)
     navic.attach(client, bufnr)

@@ -95,6 +95,16 @@ RUN yarn global add yaml-language-server
 COPY java_dap_build.sh /opt/java_dap_build.sh
 RUN bash /opt/java_dap_build.sh
 
+WORKDIR /tmp
+RUN curl -LO https://go.dev/dl/go1.20.3.linux-amd64.tar.gz
+RUN rm -rf /usr/local/go && tar -C /usr/local -xzf go1.20.3.linux-amd64.tar.gz
+RUN fish -c "fish_add_path /usr/local/go/bin"
+RUN /usr/local/go/bin/go install golang.org/x/tools/gopls@latest
+
+RUN /usr/local/go/bin/go install github.com/go-delve/delve/cmd/dlv@latest
+
+RUN fish -c "fish_add_path /root/go/bin"
+
 WORKDIR /workspace
 # dotfiles
 ARG CACHEBUST=1 
