@@ -74,14 +74,14 @@ for _, lsp in ipairs(servers) do
             capabilities = capabilities,
             on_attach = on_attach
         }
-    elseif lsp == 'yarmlls' then
+    elseif lsp == 'yamlls' then
         lspconfig[lsp].setup {
             on_attach = on_attach,
             capabilities = capabilities,
             settings = {
                 yaml = {
                     schemas = {
-                        ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.0/schema.yaml"] = "/*"
+                        ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.0/schema.yaml"] = "/*",
                     }
                 }
             }
