@@ -95,7 +95,7 @@ RUN yarn global add yaml-language-server
 COPY java_dap_build.sh /opt/java_dap_build.sh
 RUN bash /opt/java_dap_build.sh
 
-WORKDIR /tmp
+WORKDIR /root/go_lsp
 RUN curl -LO https://go.dev/dl/go1.20.3.linux-amd64.tar.gz
 RUN rm -rf /usr/local/go && tar -C /usr/local -xzf go1.20.3.linux-amd64.tar.gz
 RUN fish -c "fish_add_path /usr/local/go/bin"
