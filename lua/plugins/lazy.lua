@@ -51,4 +51,10 @@ require("lazy").setup {
     'SmiteshP/nvim-navic',
     'lewis6991/gitsigns.nvim',
     'simrat39/symbols-outline.nvim',
+    {
+        'jose-elias-alvarez/null-ls.nvim',
+        dependencies = {
+            'nvim-lua/plenary.nvim'
+        }
+    },
 }

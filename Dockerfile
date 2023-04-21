@@ -106,6 +106,8 @@ RUN fish -c "fish_add_path /root/go/bin"
 
 RUN echo 'SETUVAR fish_key_bindings:fish_vi_key_bindings' >> /root/.config/fish/fish_variables
 
+RUN yarn global install prettier
+
 WORKDIR /workspace
 # dotfiles
 ARG CACHEBUST=1 
