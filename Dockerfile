@@ -93,7 +93,6 @@ RUN npm i -g yarn
 RUN yarn global add yaml-language-server
 
 COPY java_dap_build.sh /opt/java_dap_build.sh
-RUN bash /opt/java_dap_build.sh
 
 WORKDIR /root/go_lsp
 RUN curl -LO https://go.dev/dl/go1.20.3.linux-amd64.tar.gz
