@@ -9,4 +9,4 @@ require("plugins.dap")
 require("plugins.hop")
 require("plugins.gitsigns")
 require("plugins.symbols-outline")
-
+require("plugins.trouble")
