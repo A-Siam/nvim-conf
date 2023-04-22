@@ -110,6 +110,8 @@ RUN yarn global add prettier
 
 RUN apt install -y tmux
 
+RUN yarn global add @prisma/language-server
+
 WORKDIR /workspace
 # dotfiles
 ARG CACHEBUST=1 
