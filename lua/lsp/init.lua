@@ -106,6 +106,7 @@ local function on_attach(client, bufnr)
             callback = function()
                 -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
                 async_formatting(bufnr)
+                vim.cmd [[ NvimTreeRefresh ]]
             end,
         })
     end
