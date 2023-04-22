@@ -108,6 +108,8 @@ RUN echo 'SETUVAR fish_key_bindings:fish_vi_key_bindings' >> /root/.config/fish/
 
 RUN yarn global add prettier
 
+RUN apt install -y tmux
+
 WORKDIR /workspace
 # dotfiles
 ARG CACHEBUST=1 
