@@ -105,7 +105,7 @@ local function on_attach(client, bufnr)
             buffer = bufnr,
             callback = function()
                 -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-                async_formatting({ bufnr = bufnr })
+                async_formatting(bufnr)
             end,
         })
     end
