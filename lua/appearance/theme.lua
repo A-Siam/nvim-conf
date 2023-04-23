@@ -12,6 +12,7 @@ require('material').setup({
         "nvim-tree",
         "nvim-web-devicons",
         "trouble",
+        "indent-blankline",
     },
     disable = {
         colored_cursor = true, -- Disable the colored cursor
