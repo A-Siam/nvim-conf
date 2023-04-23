@@ -10,3 +10,5 @@ require("plugins.hop")
 require("plugins.gitsigns")
 require("plugins.symbols-outline")
 require("plugins.trouble")
+require("plugins.indentation")
+

@@ -57,5 +57,6 @@ require("lazy").setup {
             'nvim-lua/plenary.nvim'
         }
     },
-    'folke/trouble.nvim'
+    'folke/trouble.nvim',
+    'lukas-reineke/indent-blankline.nvim'
 }
