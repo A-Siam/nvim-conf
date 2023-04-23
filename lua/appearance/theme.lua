@@ -14,8 +14,12 @@ require('material').setup({
         "trouble",
     },
     disable = {
-        colored_cursor = false, -- Disable the colored cursor
-    }
+        colored_cursor = true, -- Disable the colored cursor
+    },
+    high_visibility = {
+        lighter = false, -- Enable higher contrast text for lighter style
+        darker = false   -- Enable higher contrast text for darker style
+    },
 })
 
 vim.cmd [[ colorscheme material ]]
