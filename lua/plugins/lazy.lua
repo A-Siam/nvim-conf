@@ -13,7 +13,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup {
-    'navarasu/onedark.nvim',
+    'marko-cerovac/material.nvim',
     'neovim/nvim-lspconfig',
     'hrsh7th/nvim-cmp',
     {
