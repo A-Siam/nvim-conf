@@ -90,7 +90,7 @@ COPY lazygit_bootstrap.sh /opt/lazygit_bootstrap.sh
 RUN bash /opt/lazygit_bootstrap.sh
 
 RUN npm i -g yarn
-RUN yarn global add yaml-language-server
+RUN yarn global add yaml-language-server@1.11.0
 
 COPY java_dap_build.sh /opt/java_dap_build.sh
 
