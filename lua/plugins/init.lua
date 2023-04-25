@@ -11,4 +11,4 @@ require("plugins.gitsigns")
 require("plugins.symbols-outline")
 require("plugins.trouble")
 require("plugins.indentation")
-
+require("plugins.vim-visual-multi")
