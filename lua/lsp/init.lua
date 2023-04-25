@@ -126,7 +126,8 @@ for _, lsp in ipairs(servers) do
                 yaml = {
                     schemas = {
                         ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.0/schema.yaml"] = "/*",
-                    }
+                    },
+                    keyOrdering = false,
                 }
             }
         }
