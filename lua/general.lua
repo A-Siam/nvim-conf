@@ -15,7 +15,6 @@ go.ignorecase = true
 -- general keymaps
 vim.keymap.set('n', '<leader>tt', ":tabnew<CR>:term " .. os.getenv("MAIN_SHELL") .. "<CR>a", {})
 vim.keymap.set('n', '<leader>gg', function()
-    vim.cmd [[ wa ]]
     vim.cmd [[ LazyGit ]]
 end, {})
 vim.keymap.set('n', '<leader>nh', ":noh<CR>", {})
