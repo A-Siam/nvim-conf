@@ -2,6 +2,11 @@
 
 -- cmp config
 local luasnip = require 'luasnip'
+luasnip.config.setup {
+    history = true,
+    region_check_events = { 'InsertEnter' },
+    delete_check_events = { 'TextChanged', 'InsertLeave' }
+}
 require("luasnip/loaders/from_vscode").lazy_load()
 
 -- nvim-cmp setup
