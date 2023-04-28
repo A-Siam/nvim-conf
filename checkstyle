@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-java -jar /root/checkstyle/checkstyle-10.7.0-all.jar "$@"
-

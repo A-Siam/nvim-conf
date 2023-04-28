@@ -112,13 +112,6 @@ RUN apt install -y tmux
 
 RUN yarn global add @prisma/language-server
 
-# download checkstyle
-WORKDIR /root/checkstyle
-RUN curl -LO https://github.com/checkstyle/checkstyle/releases/download/checkstyle-10.7.0/checkstyle-10.7.0-all.jar
-
-COPY checkstyle /usr/bin/checkstyle
-RUN chmod +x /usr/bin/checkstyle
-
 WORKDIR /workspace
 # dotfiles
 ARG CACHEBUST=1 
