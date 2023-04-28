@@ -10,5 +10,6 @@ null_ls.setup({
                 "rulesets/java/quickstart.xml,category/java/bestpractices.xml,category/jsp/bestpractices.xml" -- or path to self-written ruleset
             },
         }),
+        null_ls.builtins.formatting.google_java_format,
     },
 })

@@ -112,12 +112,18 @@ RUN apt install -y tmux
 
 RUN yarn global add @prisma/language-server
 
-# download pmd
+# download pmd for java static analyser
 WORKDIR /root/pmd
 RUN curl -LO https://github.com/pmd/pmd/releases/download/pmd_releases%2F7.0.0-rc1/pmd-bin-7.0.0-rc1.zip
 RUN unzip pmd-bin-7.0.0-rc1.zip
 COPY pmd /usr/bin/pmd
 RUN chmod +x /usr/bin/pmd
+
+# download google java format for formatting
+WORKDIR /root/gjf
+RUN curl -LO https://github.com/google/google-java-format/releases/download/v1.16.0/google-java-format-1.16.0-all-deps.jar
+COPY google-java-format /usr/bin/google-java-format
+RUN chmod +x /usr/bin/google-java-format
 
 WORKDIR /workspace
 # dotfiles
