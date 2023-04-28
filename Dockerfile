@@ -115,6 +115,9 @@ RUN yarn global add @prisma/language-server
 COPY checkstyle /usr/bin/checkstyle
 RUN chmod +x /usr/bin/checkstyle
 
+WORKDIR /root/style
+RUN curl -LO https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml
+
 WORKDIR /workspace
 # dotfiles
 ARG CACHEBUST=1 

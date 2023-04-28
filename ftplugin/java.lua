@@ -1,5 +1,6 @@
 local jdtls_installation_path = os.getenv('HOME') .. '/jdtls'
 local workspace_root = os.getenv('HOME') .. '/java-workspaces'
+local stylepath = os.getenv('HOME') .. '/style/eclipse-java-google-style.xml'
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
     -- The command that starts the language server
@@ -49,6 +50,12 @@ local config = {
     -- for a list of options
     settings = {
         java = {
+            format = {
+                settings = {
+                    url = stylepath,
+                    profile = 'GoogleStyle',
+                }
+            }
         }
     },
     -- Language server `initializationOptions`
@@ -68,7 +75,7 @@ local config = {
 -- This bundles definition is the same as in the previous section (java-debug installation)
 local bundles = {
     vim.fn.glob("/root/java_dap/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar",
-    1),
+        1),
 };
 
 -- This is the new part
