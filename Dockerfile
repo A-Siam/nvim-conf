@@ -112,6 +112,12 @@ RUN apt install -y tmux
 
 RUN yarn global add @prisma/language-server
 
+# download pmd
+WORKDIR /root/pmd
+RUN curl -LO https://github.com/pmd/pmd/releases/download/pmd_releases%2F7.0.0-rc1/pmd-bin-7.0.0-rc1.zip
+RUN unzip pmd-bin-7.0.0-rc1.zip
+RUN ln -s /root/pmd/pmd-bin-7.0.0-rc1/bin/pmd /usr/bin/pmd 
+
 WORKDIR /workspace
 # dotfiles
 ARG CACHEBUST=1 
