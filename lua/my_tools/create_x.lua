@@ -1,14 +1,16 @@
 local M = {}
-local package_token = "$package"
-local element_token = "$element"
+local vim = vim
 
 local function get_package(file_path)
     local package_delimter_length = 4
     local file_separator = package.config:sub(1, 1)
-    if dir == nil then
+    if file_path == nil then
         return
     end
     local dir = string.match(file_path, "(.*)" .. file_separator)
+    if dir == nil then
+        return
+    end
     local package_path_subbed = string.gsub(dir, file_separator, '.')
     local prej_idx = string.find(package_path_subbed, 'java.')
     if prej_idx == nil then
@@ -27,62 +29,84 @@ local function get_element_name(file_path)
     return element_name
 end
 
-local function create_file(content, file_path)
+
+local function write(content)
+    local pos = vim.api.nvim_win_get_cursor(0)
+    vim.api.nvim_put(content, "", true, false)
+    vim.api.nvim_win_set_cursor(0, pos)
+end
+
+local function token_builder(file_path, cb)
     local package = get_package(file_path)
     if package ~= nil then
         local element = get_element_name(file_path)
         if element ~= nil then
-            local file = io.open(file_path, "w")
-            if file == nil then
-                print("ERR: File doesn't exist")
-                return
-            end
-            for _, value in pairs(content) do
-                if file ~= nil then
-                    local p_subbed_value = string.gsub(value, package_token, package)
-                    local e_subbed_value = string.gsub(p_subbed_value, element_token, element)
-                    file:write(e_subbed_value .. "\n")
-                end
-            end
-            file:close()
+            cb(package, element)
         end
     end
 end
 
 function M.create_class(file_path)
-    create_file({
-        "package " .. package_token .. ";",
-        "public class " .. element_token .. " {",
-        "\t",
-        "}"
-    }, file_path)
+    token_builder(file_path, function(package_name, element_name)
+        write({
+            "package " .. package_name .. ";",
+            "",
+            "public class " .. element_name .. " {",
+            "\t",
+            "}"
+        })
+    end)
 end
 
 function M.create_record(file_path)
-    create_file({
-        "package " .. package_token .. ";",
-        "public record " .. element_token .. "() {",
-        "\t",
-        "}"
-    }, file_path)
+    token_builder(file_path, function(package_name, element_name)
+        write({
+            "package " .. package_name .. ";",
+            "",
+            "public record " .. element_name .. "() {",
+            "\t",
+            "}"
+        })
+    end)
 end
 
 function M.create_enum(file_path)
-    create_file({
-        "package " .. package_token .. ";",
-        "public enum " .. element_token .. " {",
-        "\t",
-        "}"
-    }, file_path)
+    token_builder(file_path, function(package_name, element_name)
+        write({
+            "package " .. package_name .. ";",
+            "",
+            "public enum " .. element_name .. " {",
+            "\t",
+            "}"
+        })
+    end)
 end
 
 function M.create_interface(file_path)
-    create_file({
-        "package " .. package_token .. ";",
-        "public inteface " .. element_token .. " {",
-        "\t",
-        "}"
-    }, file_path)
+    token_builder(file_path, function(package_name, element_name)
+        write({
+            "package " .. package_name .. ";",
+            "",
+            "public interface " .. element_name .. " {",
+            "\t",
+            "}"
+        })
+    end)
+end
+
+function M.create_element()
+    local filepath = vim.fn.expand(vim.api.nvim_buf_get_name(0))
+    local opts = { M.create_class, M.create_interface, M.create_enum, M.create_record }
+    local res = vim.fn.inputlist(
+        {
+            "Create Java Element",
+            "1. Class",
+            "2. Interface",
+            "3. Enum",
+            "4. Record"
+        }
+    )
+    opts[res](filepath)
 end
 
 return M
