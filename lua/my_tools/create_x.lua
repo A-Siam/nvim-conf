@@ -97,15 +97,14 @@ end
 function M.create_element()
     local filepath = vim.fn.expand(vim.api.nvim_buf_get_name(0))
     local opts = { M.create_class, M.create_interface, M.create_enum, M.create_record }
-    local res = vim.fn.inputlist(
-        {
-            "1. Class",
-            "2. Interface",
-            "3. Enum",
-            "4. Record"
-        }, "Create Java Element"
-    )
-    opts[res](filepath)
+    vim.ui.select({
+        "Class",
+        "Interface",
+        "Enum",
+        "Record"
+    }, { prompt = 'Create Java Element: ' }, function(_, idx)
+        opts[idx](filepath)
+    end)
 end
 
 return M
