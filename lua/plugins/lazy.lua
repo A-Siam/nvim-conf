@@ -60,4 +60,5 @@ require("lazy").setup {
     'folke/trouble.nvim',
     'lukas-reineke/indent-blankline.nvim',
     'mg979/vim-visual-multi',
+    'nvim-telescope/telescope-ui-select.nvim',
 }
