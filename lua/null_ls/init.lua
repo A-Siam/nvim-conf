@@ -7,7 +7,7 @@ null_ls.setup({
         null_ls.builtins.diagnostics.pmd.with({
             extra_args = {
                 "--rulesets",
-                "category/java/bestpractices.xml,category/jsp/bestpractices.xml" -- or path to self-written ruleset
+                "rulesets/java/quickstart.xml,category/java/bestpractices.xml,category/jsp/bestpractices.xml" -- or path to self-written ruleset
             },
         }),
     },
