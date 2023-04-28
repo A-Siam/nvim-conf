@@ -116,7 +116,6 @@ RUN yarn global add @prisma/language-server
 WORKDIR /root/pmd
 RUN curl -LO https://github.com/pmd/pmd/releases/download/pmd_releases%2F7.0.0-rc1/pmd-bin-7.0.0-rc1.zip
 RUN unzip pmd-bin-7.0.0-rc1.zip
-RUN ln -s /root/pmd/pmd-bin-7.0.0-rc1/bin/pmd /usr/bin/pmd 
 COPY pmd /usr/bin/pmd
 RUN chmod +x /usr/bin/pmd
 
