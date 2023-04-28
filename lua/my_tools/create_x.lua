@@ -5,6 +5,9 @@ local element_token = "$element"
 local function get_package(file_path)
     local package_delimter_length = 4
     local file_separator = package.config:sub(1, 1)
+    if dir == nil then
+        return
+    end
     local dir = string.match(file_path, "(.*)" .. file_separator)
     local package_path_subbed = string.gsub(dir, file_separator, '.')
     local prej_idx = string.find(package_path_subbed, 'java.')

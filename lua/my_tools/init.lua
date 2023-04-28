@@ -1,2 +1,2 @@
-require("create_x")
-require("config")
+require("my_tools.create_x")
+require("my_tools.config")
