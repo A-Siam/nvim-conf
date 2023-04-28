@@ -49,14 +49,7 @@ local config = {
     -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
     -- for a list of options
     settings = {
-        java = {
-            format = {
-                settings = {
-                    url = stylepath,
-                    profile = 'GoogleStyle',
-                }
-            }
-        }
+        java = {}
     },
     -- Language server `initializationOptions`
     -- You need to extend the `bundles` with paths to jar files
