@@ -12,7 +12,6 @@ docker run -v "$cache_dir":/root/.local/share/nvim \
            -v "$projects_dir":/workspace \
            -v /tmp/.X11-unix:/tmp/.X11-unix \
            -v "$HOME/.ssh":"/root/.ssh" \
-           -v "$HOME/.m2":"/root/.m2" \
            -e DISPLAY=$DISPLAY \
            --net="host" \
            --rm -it --detach-keys="ctrl-z,e" docker_nvim fish
