@@ -112,6 +112,9 @@ RUN apt install -y tmux
 
 RUN yarn global add @prisma/language-server
 
+COPY checkstyle /usr/bin/checkstyle
+RUN chmod +x /usr/bin/checkstyle
+
 WORKDIR /workspace
 # dotfiles
 ARG CACHEBUST=1 
