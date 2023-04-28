@@ -129,9 +129,12 @@ for _, lsp in ipairs(servers) do
             capabilities = capabilities,
             settings = {
                 yaml = {
-                    schemas = {
-                        ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.0/schema.yaml"] = "/*",
-                    },
+                    schemas =
+                        vim.tbl_extend("keep",
+                            require('schemastore').yaml.schemas(),
+                            {
+                                ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.0/schema.yaml"] = "/*",
+                            }),
                     keyOrdering = false,
                 }
             }
