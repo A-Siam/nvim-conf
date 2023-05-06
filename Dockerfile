@@ -125,6 +125,9 @@ RUN curl -LO https://github.com/google/google-java-format/releases/download/v1.1
 COPY google-java-format /usr/bin/google-java-format
 RUN chmod +x /usr/bin/google-java-format
 
+# install graphql lsp
+RUN npm install -g graphql-language-service-cli
+
 WORKDIR /workspace
 # dotfiles
 ARG CACHEBUST=1 
