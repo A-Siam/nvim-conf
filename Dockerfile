@@ -71,8 +71,6 @@ RUN rm v1.77.2.tar.gz
 
 WORKDIR /workspace
 
-COPY .gitconfig /root/.gitconfig
-
 ENV EDITOR nvim
 
 RUN npm install -g ts-node
@@ -137,8 +135,11 @@ RUN npm install -g @tailwindcss/language-server
 
 WORKDIR /workspace
 # dotfiles
+
 ARG CACHEBUST=1 
 RUN git clone https://github.com/A-Siam/nvim-conf /root/.config/nvim
+
+COPY .gitconfig /root/.gitconfig
 
 CMD ["nvim", "-v"]
 
