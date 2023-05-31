@@ -63,5 +63,6 @@ require("lazy").setup {
     'nvim-telescope/telescope-ui-select.nvim',
     'b0o/schemastore.nvim',
     'shaunsingh/nord.nvim',
-    'JMcKiern/vim-venter'
+    'JMcKiern/vim-venter',
+    'windwp/nvim-ts-autotag'
 }
