@@ -11,7 +11,8 @@ require 'nvim-treesitter.configs'.setup {
         "markdown",
         "prisma",
         "typescript",
-        "graphql"
+        "graphql",
+        "tsx",
     },
     highlight = {
         enable = true,
