@@ -63,5 +63,5 @@ require("lazy").setup {
     'nvim-telescope/telescope-ui-select.nvim',
     'b0o/schemastore.nvim',
     'shaunsingh/nord.nvim',
-    'JMcKiern/vim-venter.git'
+    'JMcKiern/vim-venter'
 }
