@@ -67,7 +67,8 @@ local lspconfig = require('lspconfig')
 
 local navic = require("nvim-navic")
 
-local servers = { 'pyright', 'lua_ls', 'tsserver', 'yamlls', 'gopls', 'prismals', 'graphql', 'html', 'tailwindcss' }
+local servers = { 'pyright', 'lua_ls', 'tsserver', 'yamlls', 'gopls', 'prismals', 'graphql', 'html', 'tailwindcss',
+    'cssls' }
 
 -- format
 local async_formatting = function(bufnr)
