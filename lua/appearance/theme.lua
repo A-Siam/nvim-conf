@@ -1,4 +1,5 @@
 -- theme setup
+-- Material theme setup
 require('material').setup({
     contrast = {
         terminal = false,            -- Enable contrast for the built-in terminal

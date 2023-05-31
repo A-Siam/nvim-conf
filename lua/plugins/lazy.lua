@@ -62,4 +62,5 @@ require("lazy").setup {
     'mg979/vim-visual-multi',
     'nvim-telescope/telescope-ui-select.nvim',
     'b0o/schemastore.nvim',
+    'shaunsingh/nord.nvim.git'
 }
