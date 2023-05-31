@@ -67,7 +67,7 @@ local lspconfig = require('lspconfig')
 
 local navic = require("nvim-navic")
 
-local servers = { 'pyright', 'lua_ls', 'tsserver', 'yamlls', 'gopls', 'prismals', 'graphql' }
+local servers = { 'pyright', 'lua_ls', 'tsserver', 'yamlls', 'gopls', 'prismals', 'graphql', 'html', 'tailwindcss' }
 
 -- format
 local async_formatting = function(bufnr)
@@ -118,12 +118,7 @@ local function on_attach(client, bufnr)
 end
 
 for _, lsp in ipairs(servers) do
-    if lsp ~= 'lua_ls' or lsp ~= 'yamlls' then
-        lspconfig[lsp].setup {
-            capabilities = capabilities,
-            on_attach = on_attach
-        }
-    elseif lsp == 'yamlls' then
+    if lsp == 'yamlls' then
         lspconfig[lsp].setup {
             on_attach = on_attach,
             capabilities = capabilities,
@@ -158,6 +153,11 @@ for _, lsp in ipairs(servers) do
             telemetry = {
                 enable = false,
             },
+        }
+    else
+        lspconfig[lsp].setup {
+            capabilities = capabilities,
+            on_attach = on_attach
         }
     end
 end

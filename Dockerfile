@@ -128,6 +128,13 @@ RUN chmod +x /usr/bin/google-java-format
 # install graphql lsp
 RUN npm install -g graphql-language-service-cli
 
+# install html server
+RUN npm i -g vscode-langservers-extracted
+
+# install tailwind css lsp
+RUN npm install -g @tailwindcss/language-server
+
+
 WORKDIR /workspace
 # dotfiles
 ARG CACHEBUST=1 
