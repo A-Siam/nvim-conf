@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-java -jar /root/gjf/google-java-format-1.16.0-all-deps.jar "$@"
+java -jar ~/gjf/google-java-format-1.16.0-all-deps.jar "$@"
 

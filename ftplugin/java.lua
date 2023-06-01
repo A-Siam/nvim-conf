@@ -67,12 +67,12 @@ local config = {
 }
 -- This bundles definition is the same as in the previous section (java-debug installation)
 local bundles = {
-    vim.fn.glob("/root/java_dap/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar",
+    vim.fn.glob(os.getenv("HOME") .. "/java_dap/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar",
         1),
 };
 
 -- This is the new part
-vim.list_extend(bundles, vim.split(vim.fn.glob("/root/java_dap/vscode-java-test/server/*.jar", 1), "\n"))
+vim.list_extend(bundles, vim.split(vim.fn.glob(os.getenv("HOME") .. "/java_dap/vscode-java-test/server/*.jar", 1), "\n"))
 config['init_options'] = {
     bundles = bundles,
 }
