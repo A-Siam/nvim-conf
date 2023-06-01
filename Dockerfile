@@ -194,6 +194,8 @@ USER root
 RUN chown ${USERNAME}:${USERNAME} -R /home/${USERNAME}
 
 USER ${USERNAME}
+RUN chsh -s /usr/bin/fish
+
 # dotfiles
 ARG CACHEBUST=1 
 RUN git clone https://github.com/A-Siam/nvim-conf /home/${USERNAME}/.config/nvim
