@@ -152,7 +152,6 @@ RUN echo 'SETUVAR fish_key_bindings:fish_vi_key_bindings' >> /home/${USERNAME}/.
 
 RUN /home/${USERNAME}/.npm/bin/yarn global add prettier
 USER root 
-RUN apt install -y tmux
  
 USER ${USERNAME}
 RUN /home/${USERNAME}/.npm/bin/yarn global add @prisma/language-server
