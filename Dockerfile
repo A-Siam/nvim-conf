@@ -199,11 +199,6 @@ ENV TERM xterm-256color
 
 # dotfiles
 ARG CACHEBUST=1 
-
-RUN mkdir -p /home/${USERNAME}/TPR
-RUN git clone https://github.com/A-Siam/dotfiles.git /home/${USERNAME}/TPR/dotfiles
-RUN cp -r /home/${USERNAME}/TPR/dotfiles/tmux /home/${USERNAME}/.config
-
 RUN git clone https://github.com/A-Siam/nvim-conf /home/${USERNAME}/.config/nvim
 
 COPY .gitconfig /home/${USERNAME}/.gitconfig
